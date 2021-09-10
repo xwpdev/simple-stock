@@ -26,6 +26,15 @@ namespace SimpleStockServer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // allowing Angular project to make API calls
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CORSPolicy", builder => builder
+                .WithOrigins("http://localhost:4200")
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());
+            });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -47,6 +56,8 @@ namespace SimpleStockServer
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("CORSPolicy");
 
             app.UseAuthorization();
 
