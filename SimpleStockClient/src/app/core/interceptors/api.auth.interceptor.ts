@@ -11,6 +11,8 @@ export class ApiAuthInterceptor implements HttpInterceptor {
         req: HttpRequest<any>,
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
+        console.log('set api');
+        // setting X-API-KEY header for each request
         const request = req.clone({
             setHeaders: {
                 "X-API-KEY": ApiConstants.YAHOO_API_KEY

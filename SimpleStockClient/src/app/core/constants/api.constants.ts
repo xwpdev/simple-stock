@@ -1,4 +1,7 @@
 export class ApiConstants {
+    /**
+     * API Link to fetch Yahoo Finance Data
+     */
     static API_LINK = "https://yfapi.net/v7/finance/options";
 
     /**
