@@ -4,6 +4,7 @@ import { StockItem } from '../../models/stock-item';
 
 import * as signalR from '@microsoft/signalr';
 import { ApiConstants } from 'src/app/core/constants/api.constants';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-stock-item-panel',
@@ -16,7 +17,9 @@ export class StockItemPanelComponent implements OnInit {
   stock!: StockItem;
   priceIncreased!: boolean;
 
-  constructor(private financeService: FinanceService) { }
+  constructor(
+    private financeService: FinanceService,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     // Initial fetch stock data
@@ -64,6 +67,7 @@ export class StockItemPanelComponent implements OnInit {
       this.priceIncreased = (this.stock?.regularMarketChange >= 0);
     }, error => {
       console.log('loadData: ', error);
+      this.toastr.error(error['message']);
     });
   }
 

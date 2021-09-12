@@ -3,10 +3,10 @@ import { DataConstants } from 'src/app/core/constants/data.constants';
 
 @Component({
   selector: 'app-stock-item-list',
-  templateUrl: './stock-item-list.component.html',
-  styleUrls: ['./stock-item-list.component.scss']
+  templateUrl: './stock-list.component.html',
+  styleUrls: ['./stock-list.component.scss']
 })
-export class StockItemListComponent implements OnInit {
+export class StockListComponent implements OnInit {
 
   subscribedStocks = DataConstants.stocks;
 
