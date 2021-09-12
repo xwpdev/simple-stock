@@ -1,0 +1,45 @@
+@import '../../../../assets/scss/colors';
+@import '../../../../assets/scss/switch-input';
+
+:host {
+  .card {
+    color: $dark-blue;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 10%);
+    box-sizing: border-box;
+
+    &-active {
+      &-up {
+        background-color: $green;
+      }
+
+      &-down {
+        background-color: $red
+      }
+    }
+
+    &-inactive {
+      background-color: $light-grey;
+    }
+  }
+
+  .symbol {
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 500;
+  }
+
+  .name {
+    font-weight: 500;
+  }
+
+  .label {
+    font-size: 0.75rem;
+
+    &-value {
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+  }
+}

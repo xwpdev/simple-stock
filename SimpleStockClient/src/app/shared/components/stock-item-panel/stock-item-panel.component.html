@@ -1,1 +1,30 @@
+<button (click)="loadData()">Load</button>
 
+<div class="card text-center" [ngClass]="{'card-active-up': priceIncreased, 
+                'card-active-down': !priceIncreased,
+                'card-inactive': !stock?.isEnabled }">
+  <span class="d-block w-100 symbol">{{ stock?.symbol }}</span>
+  <span class="d-block w-100 name">{{ stock?.shortName }}</span>
+
+  <span class="d-block w-100 label">Current Price</span>
+  <span class="d-block w-100 text-bold label-value">{{ stock?.regularMarketPrice | currency }}</span>
+
+  <span class="d-block w-100 label">Daily High Price</span>
+  <span class="d-block w-100 text-bold label-value">{{ stock?.regularMarketDayHigh | currency }}</span>
+
+  <span class="d-block w-100 label">Daily Low Price</span>
+  <span class="d-block w-100 text-bold label-value">{{ stock?.regularMarketDayLow | currency }}</span>
+
+  <span class="d-block w-100 label">52 Week High Price</span>
+  <span class="d-block w-100 text-bold label-value">{{ stock?.fiftyTwoWeekLow | currency }}</span>
+
+  <span class="d-block w-100 label">52 Week Low Price</span>
+  <span class="d-block w-100 text-bold label-value">{{ stock?.fiftyTwoWeekHigh | currency }}</span>
+
+  <label class="switch">
+    <input type="checkbox" [disabled]="!stock" [checked]="stock?.isEnabled" (change)="toggleEnable()">
+    <span class="slider round" [ngClass]="{'round-on': stock?.isEnabled}">
+      {{ stock?.isEnabled ? 'ON' : 'OFF' }}
+    </span>
+  </label>
+</div>

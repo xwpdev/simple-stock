@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StockItemListComponent implements OnInit {
 
-  subscribedStocks = ['APPL', 'GOOGL', 'MSFT', 'TSLA'];
+  subscribedStocks = ['AAPL', 'GOOGL', 'MSFT', 'TSLA'];
 
   constructor() { }
 

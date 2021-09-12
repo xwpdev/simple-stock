@@ -1,3 +1,5 @@
-<ng-container *ngFor="let symbol of subscribedStocks">
-  <app-stock-item-panel [stockSymbol]="symbol"></app-stock-item-panel>
-</ng-container>
+<div class="grid-panel">
+  <ng-container *ngFor="let symbol of subscribedStocks">
+    <app-stock-item-panel [stockSymbol]="symbol"></app-stock-item-panel>
+  </ng-container>
+</div>

@@ -1,0 +1,21 @@
+:host {
+  .grid-panel {
+    min-width: 320px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 2rem;
+  }
+
+  @media (min-width: 600px) {
+    .grid-panel {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 900px) {
+    .grid-panel {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
