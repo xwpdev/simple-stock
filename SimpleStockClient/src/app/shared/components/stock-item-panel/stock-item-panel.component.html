@@ -1,5 +1,3 @@
-<button (click)="loadData()">Load</button>
-
 <div class="card text-center" [ngClass]="{'card-active-up': priceIncreased, 
                 'card-active-down': !priceIncreased,
                 'card-inactive': !stock?.isEnabled }">
@@ -15,11 +13,13 @@
   <span class="d-block w-100 label">Daily Low Price</span>
   <span class="d-block w-100 text-bold label-value">{{ stock?.regularMarketDayLow | currency }}</span>
 
-  <span class="d-block w-100 label">52 Week High Price</span>
-  <span class="d-block w-100 text-bold label-value">{{ stock?.fiftyTwoWeekLow | currency }}</span>
+  <div class="hide-on-mobile">
+    <span class="d-block w-100 label">52 Week High Price</span>
+    <span class="d-block w-100 text-bold label-value">{{ stock?.fiftyTwoWeekLow | currency }}</span>
 
-  <span class="d-block w-100 label">52 Week Low Price</span>
-  <span class="d-block w-100 text-bold label-value">{{ stock?.fiftyTwoWeekHigh | currency }}</span>
+    <span class="d-block w-100 label">52 Week Low Price</span>
+    <span class="d-block w-100 text-bold label-value">{{ stock?.fiftyTwoWeekHigh | currency }}</span>
+  </div>
 
   <label class="switch">
     <input type="checkbox" [disabled]="!stock" [checked]="stock?.isEnabled" (change)="toggleEnable()">

@@ -21,6 +21,7 @@ export class StockItemPanelComponent implements OnInit {
   }
 
   loadData(): void {
+
     this.financeService.get(this.stockSymbol).subscribe(res => {
       this.stock = res['optionChain']['result'][0]['quote'];
       this.stock.isEnabled = true;
