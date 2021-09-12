@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataConstants } from 'src/app/core/constants/data.constants';
 
 @Component({
   selector: 'app-stock-item-list',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StockItemListComponent implements OnInit {
 
-  subscribedStocks = ['AAPL', 'GOOGL', 'MSFT', 'TSLA'];
+  subscribedStocks = DataConstants.stocks;
 
   constructor() { }
 

@@ -9,4 +9,9 @@ export class ApiConstants {
      * Daily free limit is 100 requests
      */
     static YAHOO_API_KEY = "UIuMy8fTMv7wUcUFzGfL8qzanDOUyuM9oBXAGuUc";      // ZE1ZUt962k4wVRhTFiXBs9Xaa0ihsQHf5DJ7tztB
+
+    /**
+     * SignalR WebAPI host
+     */
+    static WEBAPI_LINK = "https://localhost:5001";
 }

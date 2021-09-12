@@ -1,19 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
+using SimpleStockServer.Interfaces;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace SimpleStockServer.Controllers
 {
+    [Route("api/[controller]")]
     public class StockController : Controller
     {
-        // GET: /<controller>/
-        public IActionResult Index()
+        private readonly IHubContext<BroadcastHub, IHubClient> _hubContext;
+
+        public StockController(IHubContext<BroadcastHub, IHubClient> hubContext)
         {
-            return View();
+            _hubContext = hubContext;
+        }
+
+        /// <summary>
+        /// GET api/values/symbol
+        /// Used to trigger update from the SERVER
+        /// </summary>
+        [HttpGet("{symbol}")]
+        public string Get(string symbol)
+        {
+            // broadcast notification
+            _hubContext.Clients.All.BroadcastMessage(symbol);
+
+            return symbol;
         }
     }
 }

@@ -5,5 +5,7 @@ namespace SimpleStockServer.Interfaces
     public interface IHubClient
     {
         Task BroadcastMessage();
+
+        Task BroadcastMessage(string symbol);
     }
 }

@@ -12,8 +12,10 @@
   <ItemGroup>
     <None Remove="Microsoft.AspNet.SignalR" />
     <None Remove="Interfaces\" />
+    <None Remove="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interfaces\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
 </Project>

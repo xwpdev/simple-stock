@@ -4,16 +4,17 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="SimpleStockServer" expanded="True">
+          <Node name="SimpleStockServer" expanded="True" selected="True">
             <Node name="SimpleStockServer" expanded="True">
               <Node name="Controllers" expanded="True" />
               <Node name="Interfaces" expanded="True" />
               <Node name="Properties" expanded="True" />
-              <Node name="appsettings.json" expanded="True" />
-              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
