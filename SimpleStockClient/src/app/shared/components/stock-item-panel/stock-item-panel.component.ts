@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { interval } from 'rxjs';
 import { FinanceService } from 'src/app/core/services/finance.service';
 import { StockItem } from '../../models/stock-item';
 
@@ -17,17 +18,29 @@ export class StockItemPanelComponent implements OnInit {
 
   ngOnInit(): void {
     // fetch stock data
-    // this.loadData();
+    this.loadData();
+
+    // mock realtime updates using a timer
+    // currently set to 30s to avoid API limit exceed
+    const timer = interval(30000);
+    timer.subscribe(() => {
+      if (this.stock && this.stock.isEnabled) {
+        this.loadData();
+      }
+    });
   }
 
   loadData(): void {
-
     this.financeService.get(this.stockSymbol).subscribe(res => {
       this.stock = res['optionChain']['result'][0]['quote'];
+
+      // set stock to updated ON by defaultÍ
       this.stock.isEnabled = true;
 
       this.priceIncreased = (this.stock?.regularMarketChange >= 0);
-    }, error => { });
+    }, error => {
+      console.log('loadData: ', error);
+    });
   }
 
   toggleEnable(): void {
