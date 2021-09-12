@@ -16,3 +16,7 @@ Open Terminal/Command Prompt
 - Open SimpleStockServer.sln using Visual Studio 2019 or latest
 - Wait for the package updates
 - Run the Project
+
+
+### Demo
+A demo can be seen from [here](https://simple-stock-i0ackwlfz-xwpdev.vercel.app/)
